@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독서 챌린지</title>
+    <style>
+        body {
+          /*시간이 남아서 쓰는 주석ㅋㅋ 이럼 달란트 더 주나여 ㅋㅋㅋㅋㅋ*/
+            /* display를 flex로! */
+            display: flex; 
+            /* flex-direction를column로*/
+            flex-direction: column;
+            /* justify-content를 center로 */
+            justify-content: center;
+            /* align-items를 center로 */
+            align-items: center;
+            /* vh 높이의 100%를 차지하도록 설정 */
+            height: 100vh;
+            /* body의 기본 마진 제거 */
+            margin: 0;
+            /* 폰트 설정 */
+            font-family: Arial, sans-serif;
+            /* 배경색 설정 */
+            background-color: #f0f8ff; /* 연한 하늘색 */
+        }
+        /* 컨테이너 div 스타일: 원형 박스 디자인 */
+        .container {
+            width: 300px; /* 너비 */
+            height: 300px; /* 높이 */
+            border-radius: 50%; /* 50%로 설정 */
+            border: 5px solid #222; /* 테두리: 두께, 스타일, 색상 */
+            background-color: #3bf; /* 배경색 */
+            text-align: center; /* 텍스트 가운데 정렬 */
+            /* flexbox를 사용하여 내부 콘텐츠 중앙 정렬 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* 그림자 효과 추가 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* 텍스트 색상 설정 */
+            color: white;
+        }
+        /* h1 태그 스타일 */
+        h1 {
+            margin-top: 20px; /* 위쪽 마진 조정 */
+            color: #333; /* 텍스트 색상 */
+        }
+        /* 강조 텍스트 스타일 */
+        .accent {
+            font-size: 1.8em; /* 폰트 크기 확대 */
+            font-weight: bold; /* 폰트 굵게 */
+            color: red; /* 텍스트 색상 빨간색 */
+        }
+        /* 컨테이너 내부 p 태그 스타일 */
+        .container p {
+            margin: 5px 0; /* 상하 마진 조정 */
+            color: black;
+            line-height: 1.4; /* 줄 간격 설정 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container"><!--div에 class->container선언 -->
+        <h1>책 읽기</h1><!--h1-->
+        <p><span class="accent" id="result"></span>일 연속으로 <br> 책 읽기를 달성했군요.</p><!--span 안에 강조 텍스트 + id(JS)넣음, JS에서 숫자 받아와서 씀-->
+        <p>축하합니다!</p><!--p테그-->
+    </div> 
+
+    <button onclick="window.close()">닫기</button>
+    <script>
+        // 현재 날짜를 나타내는 Date 객체 생성 +
+        let now = new Date(); // 오늘 날짜 지정
+        // 시작 날짜를 나타내는 Date 객체 생성 +
+        let firstDay = new Date("2025-01-01"); // 시작 날짜 지정 (YYYY-MM-DD 형식)(2025년 1월 1일은 라피 레드후드 출시일!)
+        
+        // now 객체의 시간 값을 밀리초 단위로 가져옴 (1970년 1월 1일 UTC부터 레츠고 어스)
+        let toNow = now.getTime(); 
+        // firstDay 객체의 시간 값을 밀리초 단위로 가져옴!
+        let toFirst = firstDay.getTime();
+
+        // 현재 날짜와 시작 날짜의 밀리초 차이를 계산 (경과된 시간)
+        let passedTime = toNow - toFirst;
+
+        // 밀리초를 일수로 변환하고 반올림! (1000ms * 60s * 60m * 24h = 1일) (동방 피탄붐 참고로 100ms임 ㅋㅋ)
+        passedTime = Math.round(passedTime / (1000 * 60 * 60 * 24));
+
+        // 'result'라는 id를 가진 HTML 요소(span)에 계산된 일수 값을 텍스트로 삽입
+        document.querySelector('#result').innerText = passedTime;
+        
+    
+    </script>
+</body>
+</html>

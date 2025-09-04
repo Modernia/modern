@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="display">
+        <script>
+            document.write(`<p><b>location.helf : </b>${location.href}</p>`);
+            document.write(`<p><b>location.helf : </b>${location.host}</p>`);
+            document.write(`<p><b>location.helf : </b>${location.protocol}</p>`);
+            console.log(location.href.length);
+        </script>
+    </div>
+
+    <button onclick="location.replace('https://www.w3schools.com')">w3schools.com</button>
+
+    <button onclick="location.href='https://www.naver.com'">주토피아</button>
+
+    <button onclick="history.back()">뒷치기</button>
+
+</body>
+
+</html>
